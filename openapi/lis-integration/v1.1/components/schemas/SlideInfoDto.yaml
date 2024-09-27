@@ -15,6 +15,6 @@ properties:
       кодблока
     pattern: ^(?!\s*$).+
   stain:
-    $ref: ./DictionaryRef.yaml
+    $ref: ./StainDictionaryRef.yaml
 required:
   - slideId

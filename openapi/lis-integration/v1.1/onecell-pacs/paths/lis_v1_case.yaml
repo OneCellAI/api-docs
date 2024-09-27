@@ -92,6 +92,8 @@ post:
                     id: string
                     shortName: string
                     name: string
+                    stainType: HC
+                    availableForOrder: false
 delete:
   summary: Удаление мед. случаев из PACS
   description: Удаление медицинских случаев из PACS OneCell
