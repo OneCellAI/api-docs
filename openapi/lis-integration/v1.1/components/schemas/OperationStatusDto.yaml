@@ -9,7 +9,7 @@ properties:
     type: boolean
     description: Операция выполнена успешно?
   error:
-    $ref: .\ErrorResponseDto.yaml
+    $ref: ./ErrorResponseDto.yaml
 required:
   - id
   - success

@@ -24,18 +24,18 @@ properties:
     minimum: 1
     maximum: 5
   icd10:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   icd10DetailedList:
     type: array
     description: Поле обязательно, если `icd10` не указано
     items:
-      $ref: .\Icd10WithAdditionalCodes.yaml
+      $ref: ./Icd10WithAdditionalCodes.yaml
   morphologyCode:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   doctorId:
-    $ref: .\UserRef.yaml
+    $ref: ./UserRef.yaml
   consultantId:
-    $ref: .\UserRef.yaml
+    $ref: ./UserRef.yaml
   ihcResult:
     type: string
     description: Результат ИГХ

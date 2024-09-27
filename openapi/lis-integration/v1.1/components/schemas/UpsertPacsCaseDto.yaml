@@ -11,13 +11,13 @@ properties:
     description: Дата заказа / дата создания медицинского случая
     format: date-time
   patient:
-    $ref: .\PatientDto.yaml
+    $ref: ./PatientDto.yaml
   services:
     type: array
     items:
-      $ref: .\DictionaryRef.yaml
+      $ref: ./DictionaryRef.yaml
   incomingIcd10:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   orderNumber:
     description: Уникальный номер заказа
     type: string
@@ -30,17 +30,17 @@ properties:
     description: Клинические сведения и дополнительная информация
     pattern: ^(?!\s*$).+
   doctorId:
-    $ref: .\UserRef.yaml
+    $ref: ./UserRef.yaml
   materialTakeoutDate:
     type: string
     format: date-time
     description: Дата забора материала
   materialType:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   diagnosticProcedureType:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   caseResearchType:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   comment:
     type: string
     description: Комментарий к пробе
@@ -48,21 +48,21 @@ properties:
   notes:
     type: array
     items:
-      $ref: .\NoteDto.yaml
+      $ref: ./NoteDto.yaml
   bioMaterials:
     type: array
     items:
-      $ref: .\BioMaterialInfoDto.yaml
+      $ref: ./BioMaterialInfoDto.yaml
   blocks:
     type: array
     items:
-      $ref: .\BlockInfoDto.yaml
+      $ref: ./BlockInfoDto.yaml
   slides:
     type: array
     items:
-      $ref: .\SlideInfoDto.yaml
+      $ref: ./SlideInfoDto.yaml
   department:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   task:
     type: string
     description: >-

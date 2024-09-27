@@ -9,6 +9,6 @@ properties:
       кодблока
     pattern: ^(?!\s*$).+
   site:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
 required:
   - blockId

@@ -15,7 +15,7 @@ properties:
     type: array
     description: Field errors (on validation error)
     items:
-      $ref: .\FieldError.yaml
+      $ref: ./FieldError.yaml
 required:
   - code
   - message

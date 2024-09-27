@@ -13,9 +13,9 @@ properties:
     description: Биоматериал
     pattern: ^(?!\s*$).+
   site:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   processNature:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   fragmentsCount:
     type: integer
     format: int64

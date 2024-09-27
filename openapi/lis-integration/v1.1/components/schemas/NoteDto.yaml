@@ -15,7 +15,7 @@ properties:
       TODO: есть ли он на стороне LIS?
     pattern: ^(?!\s*$).+
   author:
-    $ref: .\UserRef.yaml
+    $ref: ./UserRef.yaml
   authorExternalName:
     type: string
     description: Имя автор заметки (только если нет аккаунта в Active Directory)

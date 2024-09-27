@@ -11,7 +11,7 @@ properties:
     type: array
     description: Полный список ММК данного медицинского случая
     items:
-      $ref: .\MmcDto.yaml
+      $ref: ./MmcDto.yaml
 required:
   - caseNumber
   - mmc

@@ -5,13 +5,13 @@ description: >-
   исследования
 properties:
   icd10:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   topographicalIcdO:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   morphologicalIcdO:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   processNature:
-    $ref: .\DictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
   tnmClassification:
     type: string
 required:
