@@ -1,0 +1,116 @@
+post:
+  summary: Выгрузка мед. случаев в PACS
+  description: Создание/обновление медицинских случаев и данных пациента в PACS OneCell
+  operationId: upsertCases
+  responses:
+    '200':
+      $ref: ../../components/responses/BulkMethodResponse.yaml
+    '201':
+      description: Created
+    '400':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '401':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '403':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '413':
+      $ref: ../../components/responses/ErrorResponse.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/UpsertPacsCaseDto.yaml
+            example:
+              caseNumber: B00000001
+              orderNumber: '111333699'
+              caseDate: '2019-08-24T14:15:22Z'
+              patient:
+                patientId: string
+                fullname: string
+                birthDate: string
+                sex: MALE
+              service:
+                id: string
+                shortName: string
+                name: string
+              incomingIcd10:
+                id: string
+                shortName: string
+                name: string
+              macroDescription: string
+              description: string
+              doctorId:
+                userIdentifier: string
+                fullname: string
+              materialTakeoutDate: '2019-08-24T14:15:22Z'
+              materialType:
+                id: string
+                shortName: string
+                name: string
+              diagnosticProcedureType:
+                id: string
+                shortName: string
+                name: string
+              caseResearchType:
+                id: string
+                shortName: string
+                name: string
+              comment: string
+              notes:
+                - noteId: string
+                  author:
+                    userIdentifier: string
+                    fullname: string
+                  createdAt: '2019-08-24T14:15:22Z'
+                  body: string
+              bioMaterials:
+                - bioMaterialId: '1011021031'
+                  bioMaterial: string
+                  site:
+                    id: string
+                    shortName: string
+                    name: string
+                  processNature:
+                    id: string
+                    shortName: string
+                    name: string
+                  fragmentsCount: 0
+                  blocksCount: 0
+                  slidesCount: 0
+              blocks:
+                - blockId: string
+                  site:
+                    id: string
+                    shortName: string
+                    name: string
+              slides:
+                - slideId: string
+                  blockId: string
+                  stain:
+                    id: string
+                    shortName: string
+                    name: string
+delete:
+  summary: Удаление мед. случаев из PACS
+  description: Удаление медицинских случаев из PACS OneCell
+  operationId: deleteCases
+  responses:
+    '200':
+      $ref: ../../components/responses/BulkMethodResponse.yaml
+    '400':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '401':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '403':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '413':
+      $ref: ../../components/responses/ErrorResponse.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/DeletePacsCaseDto.yaml

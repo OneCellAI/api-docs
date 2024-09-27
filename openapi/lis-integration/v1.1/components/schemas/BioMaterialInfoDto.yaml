@@ -1,0 +1,35 @@
+title: BioMaterialInfoDto
+type: object
+description: Биоматериал
+properties:
+  bioMaterialId:
+    type: string
+    description: >-
+      Уникальный идентификатор биоматериала в рамках случая. Например, ID пробы
+      (контейнера)
+    pattern: ^(?!\s*$).+
+  bioMaterial:
+    type: string
+    description: Биоматериал
+    pattern: ^(?!\s*$).+
+  site:
+    $ref: .\DictionaryRef.yaml
+  processNature:
+    $ref: .\DictionaryRef.yaml
+  fragmentsCount:
+    type: integer
+    format: int64
+    description: Количество фрагментов
+    minimum: 0
+  blocksCount:
+    type: integer
+    format: int64
+    description: Количество блоков
+    minimum: 0
+  slidesCount:
+    type: integer
+    format: int64
+    description: Количество слайдов
+    minimum: 0
+required:
+  - bioMaterialId

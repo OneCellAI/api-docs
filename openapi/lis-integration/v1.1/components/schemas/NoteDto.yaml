@@ -1,0 +1,36 @@
+title: NoteDto
+type: object
+description: >-
+  Информация о заметке в мед. случае на стороне ЛИС для выгрузки в PACS OneCell
+
+  Обратите внимание, что необходимо обязательно указать автора заметки через
+  поле 
+
+  `author`, либо через поле `authorExternalName`
+properties:
+  noteId:
+    type: string
+    description: |-
+      Уникальный идентификатор заметки в рамках мед. случая 
+      TODO: есть ли он на стороне LIS?
+    pattern: ^(?!\s*$).+
+  author:
+    $ref: .\UserRef.yaml
+  authorExternalName:
+    type: string
+    description: Имя автор заметки (только если нет аккаунта в Active Directory)
+    pattern: ^(?!\s*$).+
+  createdAt:
+    type: string
+    format: date-time
+    description: |-
+      Дата и время создания заметки
+      TODO: могут ли они менять заметки? если да, то надо updatedAt
+  body:
+    type: string
+    description: Содержимое заметки
+    pattern: ^(?!\s*$).+
+required:
+  - noteId
+  - createdAt
+  - body

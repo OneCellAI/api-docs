@@ -1,0 +1,57 @@
+post:
+  summary: Получение набора случаев из LIS по идентификаторам
+  description: >
+    Получение набора случаев из LIS для их обновления на стороне PACS, либо для
+    их выгрузки в PACS по его инициативе.
+
+
+    При поиске всегда передаётся массив, где каждый элемент один или несколько
+    идентификаторов для фильтрации.
+
+
+    При передаче нескольких условий поиска в рамках одного объекта, сервер
+    должен искать объект, который удовлетворяет всем условиям поиска (**AND**):
+
+    ```
+
+    [
+      // Ищем случай, где id_случая=B001 И номером_заказа=345
+      { "caseId": "B001", "orderNumber": "345" },
+
+      // Также ищем случай, где id_случая=B002
+      { "caseId": "B002" }
+    ]
+
+    ```
+  operationId: findCases
+  responses:
+    '200':
+      $ref: ../components/responses/CaseSearchResponse.yaml
+    '400':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '401':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '403':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '413':
+      $ref: ../../components/responses/ErrorResponse.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/CaseSearchRequest.yaml
+        examples:
+          Пример поиска четырёх случаев (2 случая ищутся по caseNumber, 1 случай по orderNumber, 1 случай по bioMaterialId):
+            value:
+              - caseNumber: B00000001
+              - orderNumber: '000000171'
+              - bioMaterialId: '1021031041'
+              - caseNumber: B00000002
+          Пример поиска двух случаев (первый случай ищется по соответствию caseNumber И orderNumber, второй - только по соответствию caseNumber):
+            value:
+              - caseNumber: B00000001
+                orderNumber: '000000171'
+              - bioMaterialId: '1021031041'
+parameters: []

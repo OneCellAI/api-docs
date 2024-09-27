@@ -1,0 +1,25 @@
+post:
+  summary: Импорт списка импортированных ММК в LIS
+  operationId: upsertMmc
+  responses:
+    '200':
+      $ref: ../../components/responses/BulkMethodResponse.yaml
+    '400':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '401':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '403':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '413':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '500':
+      description: Internal Server Error
+  description: ЛИС должен принимать от OneCell набор ММК (мединиского медиа контента - микро, макро слайдов и документов) и сохранять в своей базе данных для последующего вывода врачу прямых ссылок на слайды и документы в интерфейсе OneCell.
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/UpsertLisCaseMmcDto.yaml
+parameters: []

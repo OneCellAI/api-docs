@@ -1,0 +1,15 @@
+title: OperationStatusDto
+type: object
+properties:
+  id:
+    type: string
+    description: Идентификатор сущности (ID медицинского случая/пациента и т.п.)
+    pattern: ^(?!\s*$).+
+  success:
+    type: boolean
+    description: Операция выполнена успешно?
+  error:
+    $ref: .\ErrorResponseDto.yaml
+required:
+  - id
+  - success

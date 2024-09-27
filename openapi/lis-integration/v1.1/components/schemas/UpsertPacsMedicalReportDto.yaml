@@ -1,0 +1,68 @@
+title: UpsertPacsMedicalReportDto
+type: object
+description: Создание/обновление медицинских заключений в PACS OneCell
+properties:
+  macroDescription:
+    type: string
+    description: Макроописание (будет обновлено в мед. случае)
+    pattern: ^(?!\s*$).+
+  microDescription:
+    type: string
+    description: Микроописание
+    pattern: ^(?!\s*$).+
+  report:
+    type: string
+    description: Заключение
+    pattern: ^(?!\s*$).+
+  comment:
+    type: string
+    description: Доп. замечания и рекомендации
+    pattern: ^(?!\s*$).+
+  complexity:
+    type: integer
+    description: Категория сложности
+    minimum: 1
+    maximum: 5
+  icd10:
+    $ref: .\DictionaryRef.yaml
+  icd10DetailedList:
+    type: array
+    description: Поле обязательно, если `icd10` не указано
+    items:
+      $ref: .\Icd10WithAdditionalCodes.yaml
+  morphologyCode:
+    $ref: .\DictionaryRef.yaml
+  doctorId:
+    $ref: .\UserRef.yaml
+  consultantId:
+    $ref: .\UserRef.yaml
+  ihcResult:
+    type: string
+    description: Результат ИГХ
+    pattern: ^(?!\s*$).+
+  additionalResearchResult:
+    type: string
+    description: Результат доп. исследований
+    pattern: ^(?!\s*$).+
+  signed:
+    type: boolean
+    description: >-
+      Факт подписания заключения (валидации). Для отмены валидации необходимо
+      отправить весь объект заключения с установленным значением `signed=false`
+  signedAt:
+    type: string
+    format: date-time
+    description: >-
+      Время подписания заключения (валидации). Может использоваться для расчёта
+      оставшегося времени, в течение которого доступна отмена валидации
+      заключения.
+  locked:
+    type: boolean
+    description: >-
+      Факт блокирови редактирования заключения.  Если `true`, редактирование
+      заключения в интерфейсе PACS OneCell будет заблокировано. Для отмены
+      блокировки необходимо выгрузить заключение из LIS в PACS со значением
+      `locked=false`
+required:
+  - doctorId
+  - signed

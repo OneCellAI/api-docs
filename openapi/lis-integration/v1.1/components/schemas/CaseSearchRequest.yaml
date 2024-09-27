@@ -1,0 +1,23 @@
+type: object
+examples:
+  - caseNumber: B00000001
+  - orderNumber: '000000171'
+  - bioMaterialId: '1021031041'
+description: >-
+  Запрос для поиска медицинского случая. Всегда должно быть указано как ровно
+  одно поле (`caseNumber` либо `orderNumber`). Если оба поля одновременно имеют
+  пустые значения, либо оба поля имеют одновременно имеют непустые значения -
+  необходимо выдать ошибку `400 Bad Request`
+title: CaseSearchRequest
+properties:
+  caseNumber:
+    type: string
+    description: Уникальный номер случая
+  orderNumber:
+    type: string
+    description: Уникальный номер заказа
+  bioMaterialId:
+    type: string
+    description: >-
+      Уникальный идентификатор биоматериала в рамках случая. Например, ID пробы
+      (контейнера)

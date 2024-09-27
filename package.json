@@ -1,0 +1,15 @@
+{
+  "name": "api-docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "redocly": "redocly",
+    "lint": "redocly lint"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "description": "",
+  "dependencies": {
+    "@redocly/cli": "^1.25.3"
+  }
+}

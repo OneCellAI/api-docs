@@ -1,0 +1,34 @@
+# See https://redocly.com/docs/cli/configuration/
+
+extends:
+  - recommended
+
+apis:
+  lis-integration-outbound@v1.1:
+    root: ./openapi/lis-integration/v1.1/lis/openapi.yaml
+    rules:
+      no-ambiguous-paths: error
+  lis-integration-inbound@v1.1:
+    root: ./openapi/lis-integration/v1.1/onecell-pacs/openapi.yaml
+    rules:
+      no-ambiguous-paths: error
+  
+rules:
+  # A sample custom rule. Read more about rules: https://redocly.com/docs/cli/rules/
+  rule/operation-description:
+    subject: 
+      type: Operation
+      property: description
+    assertions:
+      defined: true
+      minLength: 30
+
+theme:
+  openapi:
+    generateCodeSamples:
+      languages:
+        - lang: curl
+        - lang: Java
+        - lang: Node.js
+        - lang: JavaScript
+        - lang: Python

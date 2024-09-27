@@ -1,0 +1,14 @@
+title: BlockInfoDto
+type: object
+description: Блок
+properties:
+  blockId:
+    type: string
+    description: >-
+      Уникальный идентификатор блока в рамках случая. Например, номер/штрих
+      кодблока
+    pattern: ^(?!\s*$).+
+  site:
+    $ref: .\DictionaryRef.yaml
+required:
+  - blockId

@@ -1,0 +1,20 @@
+title: DeletePacsCaseDto
+type: object
+description: Запрос удаления/восстановления медицинского случая в PACS OneCell
+properties:
+  caseNumber:
+    type: string
+    description: Уникальное название (ID) мед. случая в ЛИС
+    pattern: ^(?!\s*$).+
+  method:
+    type: string
+    description: >-
+      Способ удаления (мягкое или жёсткое), либо запрос на восстановления из
+      корзины
+    enum:
+      - HARD_DELETION
+      - SOFT_DELETION
+      - RESTORE
+required:
+  - caseNumber
+  - method

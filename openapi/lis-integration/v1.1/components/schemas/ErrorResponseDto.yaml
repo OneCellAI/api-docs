@@ -1,0 +1,21 @@
+title: ErrorResponseDto
+type: object
+properties:
+  code:
+    type: string
+    description: Error code
+    example: VALIDATION_FAILED
+    pattern: ^(?!\s*$).+
+  message:
+    type: string
+    description: Error message
+    example: 'Validation failed for object=''exampleRequestBody''. Error count: 1'
+    pattern: ^(?!\s*$).+
+  fieldErrors:
+    type: array
+    description: Field errors (on validation error)
+    items:
+      $ref: .\FieldError.yaml
+required:
+  - code
+  - message

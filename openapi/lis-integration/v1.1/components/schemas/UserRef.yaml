@@ -1,0 +1,15 @@
+title: UserRef
+type: object
+description: Ссылка на пользователя в Active Directory
+properties:
+  userIdentifier:
+    type: string
+    description: Идентификатор пользователя в AD (sAMAccountName)
+    pattern: ^(?!\s*$).+
+  fullname:
+    type: string
+    description: Полное имя пользователя
+    pattern: ^(?!\s*$).+
+required:
+  - userIdentifier
+  - fullname

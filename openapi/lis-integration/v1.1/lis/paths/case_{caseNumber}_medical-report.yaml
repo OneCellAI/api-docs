@@ -1,0 +1,33 @@
+parameters:
+  - schema:
+      type: string
+    name: caseNumber
+    in: path
+    required: true
+    description: Уникальный идентификатор мед. случая
+post:
+  summary: Импорт мед. заключения в LIS
+  operationId: upsertCaseMedicalReport
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/OperationStatusDto.yaml
+    '400':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '401':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '403':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '413':
+      $ref: ../../components/responses/ErrorResponse.yaml
+  description: Создание/обновление медицинского заключения в PACS OneCell
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: >-
+            ../../components/schemas/UpsertPacsMedicalReportDto.yaml
+    description: ''

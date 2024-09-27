@@ -1,0 +1,148 @@
+description: Результаты поиска
+content:
+  application/json:
+    schema:
+      type: array
+      items:
+        $ref: ../../../components/schemas/UpsertPacsCaseDto.yaml
+    examples:
+      'Пример: найдено 2 случая из 3':
+        value:
+          - caseNumber: B00000001
+            orderNumber: '000000041'
+            caseDate: '2019-08-24T14:15:22Z'
+            patient:
+              patientId: PAT-01252155
+              fullname: Василий Пупкин Олегович
+              birthDate: '1984-08-24'
+              sex: MALE
+            services:
+              - id: SVC-001
+                shortName: ПостДиагн
+                name: Постановка диагноза
+            incomingIcd10:
+              id: '2951'
+              shortName: J39.2
+              name: Другие болезни глотки
+            macroDescription: string
+            description: string
+            doctorId:
+              userIdentifier: string
+              fullname: string
+            materialTakeoutDate: '2019-08-24T14:15:22Z'
+            materialType:
+              id: string
+              shortName: string
+              name: string
+            diagnosticProcedureType:
+              id: string
+              shortName: string
+              name: string
+            caseResearchType:
+              id: string
+              shortName: string
+              name: string
+            comment: string
+            notes:
+              - noteId: string
+                author:
+                  userIdentifier: string
+                  fullname: string
+                createdAt: '2019-08-24T14:15:22Z'
+                body: string
+            bioMaterials:
+              - bioMaterialId: '1011021031'
+                bioMaterial: string
+                site:
+                  id: string
+                  shortName: string
+                  name: string
+                processNature:
+                  id: string
+                  shortName: string
+                  name: string
+                fragmentsCount: 0
+                blocksCount: 0
+                slidesCount: 0
+            blocks:
+              - blockId: string
+                site:
+                  id: string
+                  shortName: string
+                  name: string
+            slides:
+              - slideId: string
+                blockId: string
+                stain:
+                  id: string
+                  shortName: string
+                  name: string
+          - caseNumber: B99999999
+            orderNumber: '000000171'
+            caseDate: '2019-08-24T14:15:22Z'
+            patient:
+              patientId: PAT-55121042
+              fullname: Ольга Ольговна Олеговна
+              birthDate: '1962-11-21'
+              sex: FEMALE
+            services:
+              - id: SVC-001
+                shortName: ПостДиагн
+                name: Постановка диагноза
+            incomingIcd10:
+              id: string
+              shortName: string
+              name: string
+            macroDescription: string
+            description: string
+            doctorId:
+              userIdentifier: string
+              fullname: string
+            materialTakeoutDate: '2019-08-24T14:15:22Z'
+            materialType:
+              id: string
+              shortName: string
+              name: string
+            diagnosticProcedureType:
+              id: string
+              shortName: string
+              name: string
+            caseResearchType:
+              id: string
+              shortName: string
+              name: string
+            comment: string
+            notes:
+              - noteId: string
+                author:
+                  userIdentifier: string
+                  fullname: string
+                createdAt: '2019-08-24T14:15:22Z'
+                body: string
+            bioMaterials:
+              - bioMaterialId: '2223334445'
+                bioMaterial: string
+                site:
+                  id: string
+                  shortName: string
+                  name: string
+                processNature:
+                  id: string
+                  shortName: string
+                  name: string
+                fragmentsCount: 0
+                blocksCount: 0
+                slidesCount: 0
+            blocks:
+              - blockId: string
+                site:
+                  id: string
+                  shortName: string
+                  name: string
+            slides:
+              - slideId: string
+                blockId: string
+                stain:
+                  id: string
+                  shortName: string
+                  name: string

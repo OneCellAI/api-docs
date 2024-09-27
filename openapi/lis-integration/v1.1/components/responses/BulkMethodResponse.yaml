@@ -1,0 +1,23 @@
+description: Результат выполнения групповой операции
+content:
+  application/json:
+    schema:
+      type: array
+      items:
+        $ref: ../schemas/OperationStatusDto.yaml
+    examples:
+      example-1:
+        value:
+          - id: B0000000001
+            success: true
+          - id: B0000000002
+            success: false
+            error:
+              code: VALIDATION_FAILED
+              message: 'Validation failed for object=''body''. Error count: 1'
+              fieldErrors:
+                - code: INVALID_SIZE
+                  property: name
+                  message: size must be between 2 and 2147483647
+                  rejectedValue: a
+                  path: person.name

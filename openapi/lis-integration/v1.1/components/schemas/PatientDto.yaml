@@ -1,0 +1,33 @@
+title: PatientDto
+type: object
+description: Информация о пациенте в ЛИС для выгрузки в PACS OneCell
+properties:
+  patientId:
+    type: string
+    description: Уникальный ID пациента в рамках мед. учреждения
+    pattern: ^(?!\s*$).+
+  fullname:
+    type: string
+    description: ФИО пациента
+    pattern: ^(?!\s*$).+
+  birthDate:
+    type: string
+    description: Дата рождения пациента
+    format: date
+  sex:
+    type: string
+    description: Пол пациента
+    enum:
+      - MALE
+      - FEMALE
+  globalPatientId:
+    type: string
+    description: >-
+      Глобально уникальный ID пациента в рамках страны (напр. ЕМИАС или СНИЛС).
+      Данный идентификатор используется для объединения пациентов из нескольких
+      медицинских учреждений
+required:
+  - patientId
+  - fullname
+  - birthDate
+  - sex

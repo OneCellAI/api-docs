@@ -1,0 +1,79 @@
+title: UpsertPacsCaseDto
+type: object
+description: Создание/обновление медицинских случаев и данных пациента в PACS OneCell
+properties:
+  caseNumber:
+    type: string
+    description: Уникальное название (ID) мед. случая в ЛИС
+    pattern: ^(?!\s*$).+
+  caseDate:
+    type: string
+    description: Дата заказа / дата создания медицинского случая
+    format: date-time
+  patient:
+    $ref: .\PatientDto.yaml
+  services:
+    type: array
+    items:
+      $ref: .\DictionaryRef.yaml
+  incomingIcd10:
+    $ref: .\DictionaryRef.yaml
+  orderNumber:
+    description: Уникальный номер заказа
+    type: string
+  macroDescription:
+    type: string
+    description: Макроописание
+    pattern: ^(?!\s*$).+
+  description:
+    type: string
+    description: Клинические сведения и дополнительная информация
+    pattern: ^(?!\s*$).+
+  doctorId:
+    $ref: .\UserRef.yaml
+  materialTakeoutDate:
+    type: string
+    format: date-time
+    description: Дата забора материала
+  materialType:
+    $ref: .\DictionaryRef.yaml
+  diagnosticProcedureType:
+    $ref: .\DictionaryRef.yaml
+  caseResearchType:
+    $ref: .\DictionaryRef.yaml
+  comment:
+    type: string
+    description: Комментарий к пробе
+    pattern: ^(?!\s*$).+
+  notes:
+    type: array
+    items:
+      $ref: .\NoteDto.yaml
+  bioMaterials:
+    type: array
+    items:
+      $ref: .\BioMaterialInfoDto.yaml
+  blocks:
+    type: array
+    items:
+      $ref: .\BlockInfoDto.yaml
+  slides:
+    type: array
+    items:
+      $ref: .\SlideInfoDto.yaml
+  department:
+    $ref: .\DictionaryRef.yaml
+  task:
+    type: string
+    description: >-
+      Задача. Если патологоанатомическое исследование - задача прижизненного
+      патологоанатомического исследования
+required:
+  - caseNumber
+  - caseDate
+  - patient
+  - services
+  - notes
+  - bioMaterials
+  - blocks
+  - slides

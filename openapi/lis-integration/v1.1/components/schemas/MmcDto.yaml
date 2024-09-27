@@ -1,0 +1,24 @@
+title: MmcDto
+type: object
+description: Информация о медицинском медиа-контенте
+properties:
+  contentId:
+    type: string
+    description: >-
+      Уникальный идентификатор медиа-контента (напр. для микро изображений -
+      штрихкод, для макро и документов - имя файла)
+  type:
+    type: string
+    description: Тип ММК
+    enum:
+      - DOCUMENT
+      - MICRO
+      - MACRO
+  url:
+    type: string
+    description: Прямой URL для открытия ММК в PACS OneCell в браузере
+    format: uri
+required:
+  - contentId
+  - type
+  - url

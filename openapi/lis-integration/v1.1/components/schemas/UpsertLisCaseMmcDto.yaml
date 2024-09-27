@@ -1,0 +1,17 @@
+title: UpsertLisCaseMmcDto
+type: object
+description: >-
+  Информация о привязанном к медицинскому случаю в PACS OneCell медицинском
+  медиа-контенте (ММК)
+properties:
+  caseNumber:
+    type: string
+    description: Уникальное название (ID) мед. случая в ЛИС
+  mmc:
+    type: array
+    description: Полный список ММК данного медицинского случая
+    items:
+      $ref: .\MmcDto.yaml
+required:
+  - caseNumber
+  - mmc

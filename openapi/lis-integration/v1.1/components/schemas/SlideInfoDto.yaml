@@ -1,0 +1,20 @@
+title: SlideInfoDto
+type: object
+description: Стекло
+properties:
+  slideId:
+    type: string
+    description: >-
+      Уникальный идентификатор стекла в рамках случая. Например, номер/штрихкод
+      стекла
+    pattern: ^(?!\s*$).+
+  blockId:
+    type: string
+    description: >-
+      Уникальный идентификатор блока в рамках случая. Например, номер/штрих
+      кодблока
+    pattern: ^(?!\s*$).+
+  stain:
+    $ref: .\DictionaryRef.yaml
+required:
+  - slideId

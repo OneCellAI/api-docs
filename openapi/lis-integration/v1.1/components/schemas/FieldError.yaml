@@ -1,0 +1,33 @@
+title: FieldError
+type: object
+properties:
+  code:
+    type: string
+    description: Field error code
+    example: INVALID_SIZE
+    pattern: ^(?!\s*$).+
+  property:
+    type: string
+    example: name
+    description: Property name
+    pattern: ^(?!\s*$).+
+  message:
+    type: string
+    description: Field error message
+    example: size must be between 10 and 2147483647
+    pattern: ^(?!\s*$).+
+  rejectedValue:
+    type: string
+    example: abc
+    description: Original field value
+    pattern: ^(?!\s*$).+
+  path:
+    type: string
+    example: name
+    description: Property path
+    pattern: ^(?!\s*$).+
+required:
+  - code
+  - property
+  - message
+  - path
