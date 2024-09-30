@@ -1,4 +1,4 @@
-title: ResearchRequest
+title: ResearchRequestSlide
 type: object
 description: |-
   Слайд в рамках Запроса на Дозаказ (Слайд в ЗнД)
