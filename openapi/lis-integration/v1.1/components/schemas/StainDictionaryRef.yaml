@@ -4,6 +4,8 @@ description: Ссылка на значение в справочнике "Ок�
 required:
   - id
   - name
+  - stainType
+  - availableForOrder
 properties:
   id:
     type: string

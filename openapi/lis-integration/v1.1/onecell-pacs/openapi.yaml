@@ -18,6 +18,8 @@ paths:
     $ref: paths/lis_v1_case.yaml
   /lis/v1/case/{caseNumber}/medical-report:
     $ref: paths/lis_v1_case_{caseNumber}_medical-report.yaml
+  /lis/v1/dictionary/stain:
+    $ref: paths/lis_v1_dictionary_stain.yaml
 components:
   securitySchemes:
     BasicAuth:

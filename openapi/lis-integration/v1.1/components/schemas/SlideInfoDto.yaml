@@ -17,7 +17,7 @@ properties:
     example: 1-2
 
   stain:
-    $ref: ./StainDictionaryRef.yaml
+    $ref: ./DictionaryRef.yaml
 
   researchRequestSlideId:
     type: string

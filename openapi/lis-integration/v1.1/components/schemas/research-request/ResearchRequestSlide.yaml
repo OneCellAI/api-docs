@@ -25,7 +25,7 @@ properties:
     pattern: ^(?!\s*$).+
   
   stain:
-    $ref: ../StainDictionaryRef.yaml
+    $ref: ../DictionaryRef.yaml
     description: Окраска, которая требуется врачу.
 
 required:
