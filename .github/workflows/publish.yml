@@ -3,7 +3,8 @@ name: Publish OpenAPI
 on:
   push:
     branches:
-      - **
+      - '**'
+  pull_request:
 
 jobs:
   build:
@@ -19,10 +20,10 @@ jobs:
       DOMAIN: onecellai.github.io
 
     steps:
-      # Comment on branch
-      - name: Comment on branch
+      # Comment on PR
+      - name: Comment on PR
         uses: hasura/comment-progress@v2.3.0
-        if: github.ref != 'refs/heads/main'
+        if: github.ref != 'refs/heads/main' && github.event_name == 'pull_request'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
@@ -60,7 +61,7 @@ jobs:
 
       - name: Deploy to PR preview
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref != 'refs/heads/main'
+        if: github.ref != 'refs/heads/main' && github.event_name == 'pull_request'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
