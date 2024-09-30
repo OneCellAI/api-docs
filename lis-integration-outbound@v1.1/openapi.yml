@@ -191,16 +191,12 @@ components:
         id:
           type: string
           description: |
-            **Уникальный** идентификатор записи в справочнике. Используется для поиска записи
-            при автообновлении справочников.
-
+            **Уникальный** идентификатор записи в справочнике. Используется для поиска записи при автообновлении справочников.
             **Отвественно относитесь к выбору идентификатора для этого поля.**
-
             Автообновление работает следующим образом:
             1. Напр. Вы опубликовали медицинский случай с Icd10 = `(id=123, shortName=C40.0, name=ABCDEF)`
             2. Затем Вы опубликовали другой медицинский случай с Icd10 = `(id=123, shortName=C41.0, name=DEADBEEF)`
-            3. Для первого медицинского случая значение справочника тоже переименуется из `C40.0 ABCDEF` в `C41.0 DEADBEEF`,
-               поскольку для этого случая было использовано то же самое значение `id` в выбранном элементе справочника.
+            3. Для первого медицинского случая значение справочника тоже переименуется из `C40.0 ABCDEF` в `C41.0 DEADBEEF`, поскольку для этого случая было использовано то же самое значение `id`  в выбранном элементе справочника.
           pattern: ^(?!\s*$).+
         shortName:
           type: string
@@ -311,6 +307,46 @@ components:
           $ref: '#/components/schemas/DictionaryRef'
       required:
         - blockId
+    StainDictionaryRef:
+      title: StainDictionaryRef
+      type: object
+      description: Ссылка на значение в справочнике "Окраски"
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          description: |
+            **Уникальный** идентификатор записи в справочнике. Используется для поиска записи при автообновлении справочников.
+            **Отвественно относитесь к выбору идентификатора для этого поля.**
+            Автообновление работает следующим образом:
+            1. Напр. Вы опубликовали медицинский случай с Stain = `(id=123, shortName=H&E, name=Гематоксилин)`
+            2. Затем Вы опубликовали другой медицинский случай с Stain = `(id=123, shortName=Ki67, name=Ki-67)`
+            3. Для первого медицинского случая значение справочника тоже переименуется из `H&E Гематоксилин` в `Ki67 Ki-67`, поскольку для этого случая было использовано то же самое значение `id`  в выбранном элементе справочника.
+          pattern: ^(?!\s*$).+
+        shortName:
+          type: string
+          description: |-
+            **NEW!**
+            Короткое название записи в справочнике, отображаемое в интерфейсе (код элемента справочника). Например, "HE".
+
+            Если поле `shortName` не заполнено или не указано в запросе - OneCell на своей стороне будет брать значение из поля `id` для отображения в интерфейсе.
+          pattern: ^(?!\s*$).+
+        name:
+          type: string
+          description: Полное название записи в справочнике, отображаемое в интерфейсе. Например, "Гематоксилин".
+          pattern: ^(?!\s*$).+
+        stainType:
+          type: string
+          description: |
+            Тип окраски. HC - гистохимическая, IHC - иммуногистохимическая.
+          enum:
+            - HC
+            - IHC
+        availableForOrder:
+          type: boolean
+          description: Доступна ли окраска для заявок на дозаказ.
     SlideInfoDto:
       title: SlideInfoDto
       type: object
@@ -325,7 +361,7 @@ components:
           description: Уникальный идентификатор блока в рамках случая. Например, номер/штрих кодблока
           pattern: ^(?!\s*$).+
         stain:
-          $ref: '#/components/schemas/DictionaryRef'
+          $ref: '#/components/schemas/StainDictionaryRef'
       required:
         - slideId
     UpsertPacsCaseDto:
@@ -675,6 +711,8 @@ components:
                         id: string
                         shortName: string
                         name: string
+                        stainType: HC
+                        availableForOrder: false
                 - caseNumber: B99999999
                   orderNumber: '000000171'
                   caseDate: '2019-08-24T14:15:22Z'
@@ -744,6 +782,8 @@ components:
                         id: string
                         shortName: string
                         name: string
+                        stainType: IHC
+                        availableForOrder: true
     ErrorResponse:
       description: Error response
       content:
