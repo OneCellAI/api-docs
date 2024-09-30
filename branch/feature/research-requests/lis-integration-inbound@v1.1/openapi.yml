@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: OneCell ← LIS Integration API
-  version: 1.10.0
+  version: 1.12.0
   license:
     name: Commercial
     url: https://onecell.ai/#api-license
