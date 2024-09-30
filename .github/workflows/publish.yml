@@ -3,28 +3,30 @@ name: Publish OpenAPI
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - '**'
 
 jobs:
   build:
     runs-on: ubuntu-latest    
     permissions:
       contents: write
+      pull-requests: write
+      issues: write
+      statuses: write
 
     env:
-      PR_PATH: pull/${{github.event.number}}
+      BRANCH_PATH: branch/${{github.ref_name}}
       DOMAIN: onecellai.github.io
 
     steps:
       # Comment on PR
       - name: Comment on PR
-        uses: hasura/comment-progress@v2.2.0
+        uses: hasura/comment-progress@v2.3.0
         if: github.ref != 'refs/heads/main'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          number: ${{ github.event.number }}
+          commit-sha: ${{ github.sha }}
           id: deploy-preview
           message: "Starting deployment of preview ⏳..."
 
@@ -54,7 +56,7 @@ jobs:
 
       - name: Set base URL for preview if PR
         if: github.ref != 'refs/heads/main'
-        run: echo "BASE_URL=https://${{ env.DOMAIN }}/${{ github.event.repository.name }}/${{ env.PR_PATH}}/" >> $GITHUB_ENV
+        run: echo "BASE_URL=https://${{ env.DOMAIN }}/${{ github.event.repository.name }}/${{ env.BRANCH_PATH }}/" >> $GITHUB_ENV
 
       - name: Deploy to PR preview
         uses: peaceiris/actions-gh-pages@v3
@@ -62,7 +64,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          destination_dir: ${{ env.PR_PATH }}
+          destination_dir: ${{ env.BRANCH_PATH }}
 
       - name: Update comment
         uses: hasura/comment-progress@v2.2.0
@@ -70,6 +72,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          number: ${{ github.event.number }}
+          commit-sha: ${{ github.sha }}
           id: deploy-preview
           message: "A preview of ${{ github.event.after }} is uploaded and can be seen here:\n\n ✨ ${{ env.BASE_URL }} ✨\n\nChanges may take a few minutes to propagate."

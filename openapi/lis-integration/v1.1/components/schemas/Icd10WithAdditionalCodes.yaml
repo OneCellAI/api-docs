@@ -6,13 +6,18 @@ description: >-
 properties:
   icd10:
     $ref: ./DictionaryRef.yaml
+    description: Код МКБ-10
   topographicalIcdO:
     $ref: ./DictionaryRef.yaml
+    description: Топографический МКБ-О код
   morphologicalIcdO:
     $ref: ./DictionaryRef.yaml
+    description: Морфологический МКБ-О код
   processNature:
     $ref: ./DictionaryRef.yaml
+    description: Тип процесса
   tnmClassification:
     type: string
+    description: Классификация TNM
 required:
   - icd10

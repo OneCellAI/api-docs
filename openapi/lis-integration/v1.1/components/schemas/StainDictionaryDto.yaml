@@ -1,0 +1,15 @@
+title: StainDictionaryDto
+type: object
+description: |-
+  Полный справочник окрасок
+
+  🆕Добавлено в версии API 1.10
+required:
+  - data
+properties:
+  data:
+    type: array
+    description: >
+      Элементы справочника "Окраски"
+    items:
+      $ref: './StainDictionaryRef.yaml'

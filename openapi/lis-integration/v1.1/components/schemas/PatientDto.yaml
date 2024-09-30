@@ -6,26 +6,31 @@ properties:
     type: string
     description: Уникальный ID пациента в рамках мед. учреждения
     pattern: ^(?!\s*$).+
+    example: '1323-000111222'
   fullname:
     type: string
     description: ФИО пациента
     pattern: ^(?!\s*$).+
+    example: 'Иванов Иван Иванович'
   birthDate:
     type: string
     description: Дата рождения пациента
     format: date
+    example: '1985-01-01'
   sex:
     type: string
     description: Пол пациента
     enum:
       - MALE
       - FEMALE
+    example: MALE
   globalPatientId:
     type: string
     description: >-
       Глобально уникальный ID пациента в рамках страны (напр. ЕМИАС или СНИЛС).
       Данный идентификатор используется для объединения пациентов из нескольких
       медицинских учреждений
+    example: '1900121345'
 required:
   - patientId
   - fullname

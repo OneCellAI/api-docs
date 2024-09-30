@@ -11,25 +11,28 @@ properties:
   noteId:
     type: string
     description: |-
-      Уникальный идентификатор заметки в рамках мед. случая 
-      TODO: есть ли он на стороне LIS?
+      Уникальный идентификатор заметки в рамках мед. случая
     pattern: ^(?!\s*$).+
+    example: NOTE00001
   author:
     $ref: ./UserRef.yaml
+    description: Автор заметки (если есть аккаунт в Active Directory)
   authorExternalName:
     type: string
-    description: Имя автор заметки (только если нет аккаунта в Active Directory)
+    description: Имя автора заметки (только если нет аккаунта в Active Directory)
     pattern: ^(?!\s*$).+
+    example: Василий Петрович
   createdAt:
     type: string
     format: date-time
     description: |-
       Дата и время создания заметки
-      TODO: могут ли они менять заметки? если да, то надо updatedAt
+    example: 2024-09-17T13:38:27+00:00
   body:
     type: string
     description: Содержимое заметки
     pattern: ^(?!\s*$).+
+    example: Случай был перемещён из архива Василием Петровичем
 required:
   - noteId
   - createdAt

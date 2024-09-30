@@ -8,10 +8,19 @@ content:
     examples:
       example-1:
         value:
-          - id: B0000001
+          - id: rr-96eafb9e-0b79-493e-b336-3142827db07e
             success: true
-          - id: B0000002
+            retryable: false
+          - id: rr-bcfe8f8e-ebb8-4231-bb2e-2f8da5a0a23d
             success: false
+            retryable: true
+            error:
+              code: EMIAS_CONNECTION_FAILED
+              message: 'Ошибка подключения к ЕМИАС. Пожалуйста, повторите попытку выгрузки позднее'
+              fieldErrors: []
+          - id: rr-75ee5242-ddbf-4afa-8f93-b9f6f8c95aca
+            success: false
+            retryable: false
             error:
               code: VALIDATION_FAILED
               message: 'Некоторые поля заполнены некорректно'

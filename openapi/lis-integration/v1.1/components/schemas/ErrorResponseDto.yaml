@@ -9,7 +9,7 @@ properties:
   message:
     type: string
     description: Error message
-    example: 'Validation failed for object=''exampleRequestBody''. Error count: 1'
+    example: 'Поля объекта заполнены некорректно'
     pattern: ^(?!\s*$).+
   fieldErrors:
     type: array
