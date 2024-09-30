@@ -3,8 +3,7 @@ name: Publish OpenAPI
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - **
 
 jobs:
   build:
@@ -16,12 +15,12 @@ jobs:
       statuses: write
 
     env:
-      PR_PATH: pull/${{github.event.number}}
+      BRANCH_PATH: branch/${{ github.ref_name }}
       DOMAIN: onecellai.github.io
 
     steps:
-      # Comment on PR
-      - name: Comment on PR
+      # Comment on branch
+      - name: Comment on branch
         uses: hasura/comment-progress@v2.3.0
         if: github.ref != 'refs/heads/main'
         with:
@@ -57,7 +56,7 @@ jobs:
 
       - name: Set base URL for preview if PR
         if: github.ref != 'refs/heads/main'
-        run: echo "BASE_URL=https://${{ env.DOMAIN }}/${{ github.event.repository.name }}/${{ env.PR_PATH}}/" >> $GITHUB_ENV
+        run: echo "BASE_URL=https://${{ env.DOMAIN }}/${{ github.event.repository.name }}/${{ env.PR_PATH }}/" >> $GITHUB_ENV
 
       - name: Deploy to PR preview
         uses: peaceiris/actions-gh-pages@v3
