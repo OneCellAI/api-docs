@@ -5,9 +5,9 @@ properties:
   blockId:
     type: string
     description: >-
-      Уникальный идентификатор блока в рамках случая. Например, номер/штрих
-      кодблока
+      Уникальный идентификатор блока в рамках случая. Например, номер/штрихкод блока
     pattern: ^(?!\s*$).+
+    example: 1-2
   site:
     $ref: ./DictionaryRef.yaml
 required:

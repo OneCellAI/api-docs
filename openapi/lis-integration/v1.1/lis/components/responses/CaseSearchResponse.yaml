@@ -150,3 +150,5 @@ content:
                   name: string
                   stainType: IHC
                   availableForOrder: true
+                researchRequestSlideId: rrs-bb43d2bc-45b1-4736-a470-cee8e788af61
+            researchRequestId: rr-96eafb9e-0b79-493e-b336-3142827db07e

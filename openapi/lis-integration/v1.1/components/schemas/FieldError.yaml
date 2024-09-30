@@ -3,28 +3,28 @@ type: object
 properties:
   code:
     type: string
-    description: Field error code
+    description: Код ошибки на поле
     example: INVALID_SIZE
     pattern: ^(?!\s*$).+
   property:
     type: string
     example: name
-    description: Property name
+    description: Название поля
     pattern: ^(?!\s*$).+
   message:
     type: string
-    description: Field error message
-    example: size must be between 10 and 2147483647
+    description: Человеко-читаемая ошибка на поле
+    example: Поле должно содержать как минимум 3 символа
     pattern: ^(?!\s*$).+
   rejectedValue:
     type: string
-    example: abc
-    description: Original field value
+    example: Ва
+    description: Оригинальное значение поля
     pattern: ^(?!\s*$).+
   path:
     type: string
-    example: name
-    description: Property path
+    example: patient.fullname
+    description: Полный путь к полю
     pattern: ^(?!\s*$).+
 required:
   - code

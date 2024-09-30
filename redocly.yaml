@@ -25,6 +25,11 @@ rules:
 
 theme:
   openapi:
+    minCharacterLengthToInitSearch: 1
+    jsonSampleExpandLevel: 6
+    expandResponses: '200,201'
+    expandSingleSchemaField: true
+    hideHostname: true
     generateCodeSamples:
       languages:
         - lang: curl

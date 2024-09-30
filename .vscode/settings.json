@@ -1,7 +1,0 @@
-{
-  "openapi.paths": {
-      "schemas": [
-          "./openapi/**/*.yaml"
-      ]
-  },
-}

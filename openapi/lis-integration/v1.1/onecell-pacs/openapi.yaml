@@ -1,18 +1,18 @@
 openapi: 3.1.0
 info:
   title: OneCell ← LIS Integration API
-  version: 1.1.0
-  description: Спецификация API интеграции со стороны PACS OneCell
+  version: 1.10.0
   license:
-    name: UNLICENSED (private use only)
-    url: https://onecell.ai/api/license
-  termsOfService: https://www.onecell.ai/api/terms
-  contact:
-    url: https://onecell.ai
-    name: OneCell Platform team
-    email: platform@onecell.ai
+    name: Commercial
+    url: https://onecell.ai/#api-license
+  description: |-
+    Данный домумент описывает конечные точки (endpoints), 
+    которые реализует **ПАКС OneCell** со своей стороны для интеграции с **ЛИС**.
+
+    ЛИС будет делать запросы на данные конечные точки для передачи информации из **ЛИС** в **ПАКС**.
+
 servers:
-  - url: https://integration.onecell.acme.corp/some-prefix
+  - url: https://integration.onecell.acme.corp
 paths:
   /lis/v1/case:
     $ref: paths/lis_v1_case.yaml
