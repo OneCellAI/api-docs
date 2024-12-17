@@ -4,20 +4,23 @@ examples:
   - orderNumber: '000000171'
   - bioMaterialId: '1021031041'
 description: >-
-  Запрос для поиска медицинского случая. Всегда должно быть указано как ровно
-  одно поле (`caseNumber` либо `orderNumber`). Если оба поля одновременно имеют
-  пустые значения, либо оба поля имеют одновременно имеют непустые значения -
+  Запрос для поиска медицинского случая. Всегда должно быть указано ровно
+  одно поле (`caseNumber`, `orderNumber`, либо `bioMaterialId`). Если все поля одновременно имеют
+  пустые значения, либо все поля имеют одновременно имеют непустые значения -
   необходимо выдать ошибку `400 Bad Request`
 title: CaseSearchRequest
 properties:
   caseNumber:
     type: string
     description: Уникальный номер случая
+    example: 5130-I22006394
   orderNumber:
     type: string
     description: Уникальный номер заказа
+    example: ORD-000000001
   bioMaterialId:
     type: string
     description: >-
       Уникальный идентификатор биоматериала в рамках случая. Например, ID пробы
       (контейнера)
+    example: 5130-I22006394-0001

@@ -7,6 +7,7 @@ properties:
   caseNumber:
     type: string
     description: Уникальное название (ID) мед. случая в ЛИС
+    example: 5130-I22006394
   mmc:
     type: array
     description: Полный список ММК данного медицинского случая

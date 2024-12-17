@@ -1,0 +1,26 @@
+post:
+  summary: 🆕 Выгрузка справочника "Окраски" в PACS
+  description: Вызов данного эндпоинта заменяет весь справочник окрасок на стороне OneCell
+  operationId: upsertStainDictionary
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/OperationStatusDto.yaml
+    '201':
+      description: Created
+    '400':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '401':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '403':
+      $ref: ../../components/responses/ErrorResponse.yaml
+    '413':
+      $ref: ../../components/responses/ErrorResponse.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/StainDictionaryDto.yaml

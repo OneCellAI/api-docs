@@ -5,13 +5,14 @@ properties:
   bioMaterialId:
     type: string
     description: >-
-      Уникальный идентификатор биоматериала в рамках случая. Например, ID пробы
-      (контейнера)
+      Уникальный идентификатор биоматериала в рамках случая. Например, ID пробы (контейнера)
     pattern: ^(?!\s*$).+
+    example: '5130-I22006394-0001'
   bioMaterial:
     type: string
     description: Биоматериал
     pattern: ^(?!\s*$).+
+    example: 'Костная ткань'
   site:
     $ref: ./DictionaryRef.yaml
   processNature:
@@ -21,15 +22,18 @@ properties:
     format: int64
     description: Количество фрагментов
     minimum: 0
+    example: 3
   blocksCount:
     type: integer
     format: int64
     description: Количество блоков
     minimum: 0
+    example: 4
   slidesCount:
     type: integer
     format: int64
     description: Количество слайдов
     minimum: 0
+    example: 5
 required:
   - bioMaterialId

@@ -7,6 +7,7 @@ properties:
     description: >-
       Уникальный идентификатор медиа-контента (напр. для микро изображений -
       штрихкод, для макро и документов - имя файла)
+    example: some-file.pdf
   type:
     type: string
     description: Тип ММК
@@ -14,10 +15,12 @@ properties:
       - DOCUMENT
       - MICRO
       - MACRO
+    example: DOCUMENT
   url:
     type: string
     description: Прямой URL для открытия ММК в PACS OneCell в браузере
     format: uri
+    example: https://onecell.acme.corp/workspace/12/viewer/123?documentId=431
 required:
   - contentId
   - type
