@@ -23,6 +23,4 @@ post:
     content:
       application/json:
         schema:
-          type: array
-          items:
-            $ref: ../../components/schemas/StainDictionaryDto.yaml
+          $ref: ../../components/schemas/StainDictionaryDto.yaml
